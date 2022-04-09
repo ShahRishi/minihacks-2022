@@ -4,19 +4,11 @@ import webbrowser
 import pickle
 import numpy as np
 
-def load_model():
-    with open('./model/saved_steps.pkl', 'rb') as file:
-        data = pickle.load(file)
-    return data
-
-data = load_model()
-
-rf_grid = data["model"]
-
+rf_model = pickle.load(open('./model/trained_model.sav', 'rb'))
 
 
 def showPredict_page(): 
-    st.title("Diabetes Risk Survey") #Title of Page
+    st.title("Native Women Diabetes Risk Survey") #Title of Page
     
     #Subheading 
     ####questions: Pregnancies, Glucose,BloodPressure, SkinThickness, BMI, DiabetesPedigreeFunction, Age
@@ -38,8 +30,10 @@ def showPredict_page():
     button = st.button("Calculate Risk")
     if button: # under if statement will display results. 
         X = np.array([[pregnancies, glucose, blood_pressure, skin_thickness, BMI, pedigree_function, age]])
-        score = rf_grid.predict_proba(X)
-        st.subheader("Your estimated risk of diabetes is" + max(score[0][0], score[0][1]))
+        score = rf_model.predict_proba(X)
+        percentage = score[0][1]*100
+        percentage = f"{percentage:.2f}%"
+        st.subheader("Your estimated risk of diabetes is " + str(percentage))
 
 
 
