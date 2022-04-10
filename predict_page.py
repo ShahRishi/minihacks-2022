@@ -4,7 +4,7 @@ import webbrowser
 import pickle
 import numpy as np
 
-rf_model = pickle.load(open('./model/trained_model.sav', 'rb'))
+rf_model = pickle.load(open('./model/trained_rf_model.sav', 'rb'))
 
 
 def showPredict_page(): 
