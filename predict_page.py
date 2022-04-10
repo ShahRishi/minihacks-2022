@@ -19,7 +19,7 @@ def showPredict_page():
     blood_pressure = st.number_input("What is your blood pressure (mmHg): ", min_value=20.0, max_value=300.0)
     skin_thickness = st.slider("What is your tricep skin thickness (mm): ", 1, 50)
     family_history = st.radio("Do you have a family history of diabetes: ", ('Yes', 'No'))
-    age = st.slider("Please enter your age: ", 1, 110)
+    age = st.slider("Please enter your age: ", 18, 110)
     # learnMore = st.button("Learn More")
     # if learnMore:
     #     showLearn_page()
