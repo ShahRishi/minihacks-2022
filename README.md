@@ -2,6 +2,7 @@ Minihacks 2022 submission - diabetes predictor for native women
 This diabetes risk calculator tool was created to help native american women self-diagnose their health.
 
 To do this we used the GridSearchCV library function to hypertune a Random Forest regression model. Using a dataset of the health statistics from Pima Native Indian women, our model was trained to output an individuals diabetic risk percentage. 
+In summary, gridsearch tests several variations of our random forest regression model with many random parameters to find the optimal parameters. We then use those optimal parameters in our RF model to find our diabetic risk.
 
 Our model does not take into account the insulin levels represented in the dataset. 
 
