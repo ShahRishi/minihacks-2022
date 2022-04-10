@@ -5,6 +5,7 @@ import pickle
 import numpy as np
 
 rf_model = pickle.load(open('./model/trained_rf_model.sav', 'rb'))
+cnn_model = pickle.load(open('./model/trained_cnn_model.sav', 'rb'))
 
 
 def showPredict_page(): 
@@ -13,6 +14,7 @@ def showPredict_page():
     #Subheading 
     ####questions: Pregnancies, Glucose,BloodPressure, SkinThickness, BMI, DiabetesPedigreeFunction, Age
     st.write("""### Before we can start, we need some information from you. (If you have any questions regarding the form, visit our Learn About Diabetes page in the top left!)""")
+    model_choice = st.radio("Which machine learning model would you like to use: ", ('Random Forest', 'Convolutional Neural Network'))
     pregnancies = st.slider("How many pregnancies have you had (if applicable): ", 0, 50)
     BMI = st.number_input("Please enter your BMI to the best of your ability (kg/m^2): ", min_value=1.0, max_value=300.0)
     glucose = st.number_input("What is your fasting blood glucose level (mg/dL): ", min_value=20.0, max_value=300.0)
@@ -28,7 +30,10 @@ def showPredict_page():
     button = st.button("Calculate Risk")
     if button: # under if statement will display results. 
         X = np.array([[pregnancies, glucose, blood_pressure, skin_thickness, BMI, age]])
-        score = rf_model.predict_proba(X)
+        if model_choice == 'Random Forest':
+            score = rf_model.predict_proba(X)
+        else:
+            score = cnn_model.predict_proba(X)
         percentage = score[0][1]*100
         if family_history == 'Yes':
             percentage = min(100.00, (score[0][1]*100)+26.0)
