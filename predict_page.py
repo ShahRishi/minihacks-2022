@@ -18,20 +18,20 @@ def showPredict_page():
     glucose = st.number_input("What is your fasting blood glucose level (mg/dL): ", min_value=20.0, max_value=300.0)
     blood_pressure = st.number_input("What is your blood pressure (mmHg): ", min_value=20.0, max_value=300.0)
     skin_thickness = st.slider("What is your tricep skin thickness (mm): ", 1, 50)
-    glucose_level = st.number_input("How many of your parents had diabetes: ", 0, 2)
-    grandparents = st.number_input("How many of your grandparents had diabetes: ", 0, 4)
+    family_history = st.radio("Do you have a family history of diabetes: ", ('Yes', 'No'))
     age = st.slider("Please enter your age: ", 1, 110)
     # learnMore = st.button("Learn More")
     # if learnMore:
     #     showLearn_page()
         
     #Calculation button 
-    pedigree_function = 0.5
     button = st.button("Calculate Risk")
     if button: # under if statement will display results. 
-        X = np.array([[pregnancies, glucose, blood_pressure, skin_thickness, BMI, pedigree_function, age]])
+        X = np.array([[pregnancies, glucose, blood_pressure, skin_thickness, BMI, age]])
         score = rf_model.predict_proba(X)
         percentage = score[0][1]*100
+        if family_history == 'Yes':
+            percentage = min(100.00, (score[0][1]*100)+26.0)
         percentage = f"{percentage:.2f}%"
         st.subheader("Your estimated risk of diabetes is " + str(percentage))
 
