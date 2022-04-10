@@ -9,7 +9,7 @@ Due to This diabetes risk calculator tool was created to help Native American wo
 4. `streamlit run app.py`
 
 
-* *References
+_References_
 - https://www.frontiersin.org/articles/10.3389/fgene.2018.00515/full 
 - https://www.asc.ohio-state.edu/goel.1//STATLEARN/PROJECTS/Presentations/Diabetes_PimaIndians.pdf
 - https://www.sciencedaily.com/releases/2013/08/130822091024.htm#:~:text=Summary%3A,prediabetes%20increase%20by%2026%20percent.&text=FULL%20STORY-,A%20study%20involving%20more%20than%208%2C000%20participants%20has%20shown%20that,of%20prediabetes%20increase%20by%2026%25. 
