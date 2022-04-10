@@ -2,11 +2,13 @@
 Due to This diabetes risk calculator tool was created to help Native American women self-diagnose their health. To do this we used the GridSearchCV library to hypertune Random Forest and neural network classification models. Using a dataset of the health statistics from Pima Native Indian women, our model was trained to output an individuals diabetic risk percentage. 
 
 
+
 ### How to use this tool
 1. `git clone https://github.com/ShahRishi/minhacks-2022.git`
 2. `cd minihacks-2022`
 3. `pip install -r requirements.txt`
 4. `streamlit run app.py`
+
 
 
 _References_
