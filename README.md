@@ -4,7 +4,7 @@ Due to This diabetes risk calculator tool was created to help Native American wo
 
 
 ### How to use this tool
-1. `git clone https://github.com/ShahRishi/minhacks-2022.git`
+1. `git clone https://github.com/ShahRishi/minihacks-2022.git`
 2. `cd minihacks-2022`
 3. `pip install -r requirements.txt`
 4. `streamlit run app.py`
